@@ -3,7 +3,7 @@ import platforms from "../data/platforms";
 import consumerClient from "../services/consumer-client";
 import { FetchResponse } from "../services/consumer-client";
 
-interface Platform {
+export interface Platform {
   id: number;
   name: string;
   slug: string;
