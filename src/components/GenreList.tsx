@@ -13,10 +13,10 @@ import GenreHeading from "./GenreHeading";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGeneres();
 
   if (error) return null;
@@ -35,7 +35,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               src={getCroppedImageUrl(gen.image_background)}
             />
             <Button
-              fontWeight={gen.id === selectedGenre?.id ? "bold" : "normal"}
+              fontWeight={gen.id === selectedGenreId ? "bold" : "normal"}
               onClick={() => onSelectGenre(gen)}
               fontSize="lg"
               variant="link"
